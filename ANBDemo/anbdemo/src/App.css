@@ -1,0 +1,151 @@
+.login-form{
+  width: 50%;
+  height: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.text-left{
+  text-align: left;
+}
+h1 {
+  background: linear-gradient(to right, orange , yellow, green, cyan,blue, violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 60px;
+  line-height: 60px;
+}
+.goocolor{
+  background-color: blueviolet;
+}
+.work{
+  text-align: center;
+}
+.header {
+  overflow: hidden;
+  background-color: lightskyblue;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.logout{
+  background-color: skyblue;
+}
+.wf{
+  color: #f4511e;
+  text-align: left;
+  width: 75%;
+  text-align: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+}
+.anb{
+  height: 2px;
+  width: 2px;
+}
+img{
+  height: 50px;
+  width: 100px;
+
+}
+
+.icon-bar {
+  width: 250px;
+  background-color: #555;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 56px;
+  color: white;
+  font-size: 16px;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+.jumbotron {
+  background-color: #f4511e;
+  color: #fff;
+  text-align: center;
+  width: unset;
+  text-align: right;
+}
+nav {
+  float: left;
+ /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+  background-color: #555;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+}
+
+article {
+  float: left;
+  background-color: white;
+  height: 200px; /* only for demonstration, should be removed */
+  text-align: center;
+}
+footer {
+  background-color: #777;
+  text-align: center;
+  color: white;
+}
+table, th, td {
+  border: 1px solid black;
+}
+.col-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xl-4 {
+padding: 1rem;
+background-color: #33b5e5;
+border: 2px solid #fff;
+color: #fff;
+text-align: center;
+}
