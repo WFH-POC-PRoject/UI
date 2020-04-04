@@ -9,6 +9,7 @@ import FacebookLogin from 'react-facebook-login';
 import Workfromhome from './Workfromhome';
 import Workfrom from'./Workfrom';
 import login from'./login';
+import ResetPassword from'./ResetPassword';
 import {history} from './history';
 
 //import GoogleLogin from 'react-google-login';
@@ -55,6 +56,7 @@ render() {
         <Route exact path='/login' component={login}></Route>
         <Route exact path='/Workfrom' component={Workfrom}></Route>
         <Route exact path='/login' component={login}></Route>
+        <Route exact path='/ResetPassword' component={ResetPassword}></Route>
       </Switch>
     </Router>
     </React.Fragment>

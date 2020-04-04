@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { GoogleLoginButton,MicrosoftLoginButton } from 'react-social-login-buttons';
 import {history} from './history';
