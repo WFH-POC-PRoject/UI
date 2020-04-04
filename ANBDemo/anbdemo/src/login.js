@@ -29,7 +29,7 @@ class login extends Component{
         obj.UserName=this.state.UserName;
         obj.PasswordHash=this.state.PasswordHash;
         console.log(obj);
-        axios.post(`https://localhost:44362/LoginApi`, obj)
+        axios.post(`https://localhost:44362/Login`, obj)
         .then(response => {
             if(obj!=obj.UserName&&this.state.PasswordHash=="Test123!")
             {
