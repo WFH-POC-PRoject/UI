@@ -11,7 +11,12 @@ import Workfrom from'./Workfrom';
 import login from'./login';
 import ResetPassword from'./ResetPassword';
 import {history} from './history';
+<<<<<<< HEAD
 import EmployeeDetails from './EmployeeDetails';
+=======
+import Register from './Register';
+import Employee from './Employee';
+>>>>>>> 56ccfe428448e0cc268525519c263c1ffe16bfd2
 
 //import GoogleLogin from 'react-google-login';
 
@@ -51,14 +56,17 @@ render() {
   }
   return (
    <React.Fragment>
-      <Router history={history}>
+      <Router history={history}> 
       <Switch>
         <Route exact path='/Workfromhome' component={Workfromhome}></Route>
-        <Route exact path='/login' component={login}></Route>
+        <Route exact path='/' component={login}></Route>
         <Route exact path='/Workfrom' component={Workfrom}></Route>
         <Route exact path='/EmployeeDetails' component={EmployeeDetails}></Route>
         <Route exact path='/login' component={login}></Route>
         <Route exact path='/ResetPassword' component={ResetPassword}></Route>
+        <Route exact path='/Register' component={Register}></Route>
+        <Route exact path='/Employee' component={Employee}></Route>
+        
       </Switch>
     </Router>
     </React.Fragment>
