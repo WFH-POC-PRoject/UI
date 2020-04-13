@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { GoogleLoginButton,MicrosoftLoginButton } from 'react-social-login-buttons';
 import {history} from './history';
@@ -31,7 +31,7 @@ class login extends Component{
         console.log(obj);
         axios.post(`https://localhost:44362/Login`, obj)
         .then(response => {
-            if(obj!=obj.UserName&&this.state.PasswordHash=="Test123!")
+            if(obj!=obj.UserName&&this.state.PasswordHash==obj.PasswordHash)
             {
                 console.log(response);
                 history.push('/Workfromhome');
@@ -86,7 +86,8 @@ class login extends Component{
       </MicrosoftLoginButton>
         
         <div className="text-center">
-          <a href="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp">Sign Up</a>
+          {/* <a href="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp">Sign Up</a> */}
+          <Link to="/Register">Sign Up</Link>
           <span className="p-2">|</span>
           <a href="https://www.website.com/forgot-password/">Forgot Password</a>
   
