@@ -22,9 +22,8 @@ class Workfromhome extends  Component{
                       <ul class="icon-bar">
                         <li><Link to="/Workfromhome">Home</Link></li>
                         <li><Link to="/Workfrom">Workfromhome</Link></li>
-                        <li><a href="">About</a></li>
+                        <li><Link to="/EmployeeDetails">EmployeeDetails</Link></li>
                         <li><a href="">Careers</a></li>
-                        <li><a href=""></a></li>
                       </ul>
                     </nav>
                     <br/>

@@ -11,6 +11,7 @@ import Workfrom from'./Workfrom';
 import login from'./login';
 import ResetPassword from'./ResetPassword';
 import {history} from './history';
+import EmployeeDetails from './EmployeeDetails';
 
 //import GoogleLogin from 'react-google-login';
 
@@ -55,6 +56,7 @@ render() {
         <Route exact path='/Workfromhome' component={Workfromhome}></Route>
         <Route exact path='/login' component={login}></Route>
         <Route exact path='/Workfrom' component={Workfrom}></Route>
+        <Route exact path='/EmployeeDetails' component={EmployeeDetails}></Route>
         <Route exact path='/login' component={login}></Route>
         <Route exact path='/ResetPassword' component={ResetPassword}></Route>
       </Switch>

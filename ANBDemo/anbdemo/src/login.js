@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 //import {Link} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import { GoogleLoginButton,MicrosoftLoginButton } from 'react-social-login-buttons';
+import { GoogleLoginButton } from 'react-social-login-buttons';
 import {history} from './history';
 import GoogleLogin from 'react-google-login';
 
 class login extends Component{
+  
     constructor(props){
       super(props)
       this.state={
@@ -31,7 +31,7 @@ class login extends Component{
         console.log(obj);
         axios.post(`https://localhost:44362/Login`, obj)
         .then(response => {
-            if(obj!=obj.UserName&&this.state.PasswordHash=="Test123!")
+            if(obj!=obj.UserName&this.state.PasswordHash==obj.PasswordHash)
             {
                 console.log(response);
                 history.push('/Workfromhome');
@@ -43,13 +43,14 @@ class login extends Component{
       }
     
     render() {
-      const responseFacebook = (response) => {
+      const responseMicrosoft = (response) => {
         console.log(response);
       }
+      
       const responseGoogle = (response) => {
-        console.log(response);
-      }
 
+      }
+      
       return(
         <Form className="login-form">
         <br/>
@@ -69,22 +70,19 @@ class login extends Component{
         <div className="text-center pt-3">
           Or Continue with your social account
         </div>
-        <GoogleLoginButton>
-        {/* <GoogleLogin className="goocolor"
-          clientId="146986635497-l8j3se945013oktrfskdk5uladive00j.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
+        <br/>
+        {/* <GoogleLoginButton> */}
+        <GoogleLogin id="goog" style={{color: "burlywood"}}
+          clientId="327606379568-tnqj9q11bmc9djul8rbef5ehckup9749.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
           buttonText="LOGIN WITH GOOGLE"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
-        /> */}
-        </GoogleLoginButton>
-        <MicrosoftLoginButton className="mt-3 mb-3">
-        {/* <FacebookLogin
-        appId="" //APP ID NOT CREATED YET
-        fields="name,email,picture"
-        callback={responseFacebook}
-        /> */}
-      </MicrosoftLoginButton>
-        
+          cookiePolicy={'single_host_origin'}
+          className="btnGoogle"
+        />
+        {/* </GoogleLoginButton> */}
+        <br/>
+        <br/>
         <div className="text-center">
           <a href="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp">Sign Up</a>
           <span className="p-2">|</span>

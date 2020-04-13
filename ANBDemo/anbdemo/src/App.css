@@ -18,6 +18,12 @@ h1 {
 .goocolor{
   background-color: blueviolet;
 }
+button.googlecolor{
+  background-color: rgb(203, 63, 34);
+}
+googleLogin{
+background-color: rgb(203, 63, 34);
+}
 .work{
   text-align: center;
 }
@@ -37,11 +43,51 @@ h1 {
   line-height: 25px;
   border-radius: 4px;
 }
+#goog{
+  width: 300px;
+}
+.loginwithgoogle{
+  background-color: burlywood;
+}
+.btnGoogle { 
+  margin:5px;
+  width: 300px;
+  height:45px;
+  border-radius: 4px;
+  background: #db3236;
+  background-color:skyblue;
+  color:burlywood;
+  border:0px transparent;
+  text-align: center;
+}
+
+#emp1{
+  background-color: #4CAF50;
+  color: white;
+}
+#text{
+ background-color: white;
+}
+#btn{
+  background-color: skyblue;
+  height: 35px;
+}
+#emp{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  /* background-color: #4CAF50; */
+ /* color: rgb(255, 255, 255);*/
+}
+table, th, td{
+  border: white !important;
+}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 80%;
+  width: 82%;
   text-align: center;
+  border: white;
 }
 
 td, th {
@@ -87,16 +133,21 @@ img{
   width: 100px;
 
 }
-
-.icon-bar {
-  width: 250px;
-  background-color: #555;
+.googlecolor{
+ text-align: center;
 }
+.icon-bar {
+  width: 210px;
+  background-color: #555;
+  height: 650px;
+  text-align: left;
+}
+
 
 .icon-bar a {
   display: block;
-  text-align: center;
-  padding: 56px;
+  text-align: left;
+  padding: 20px;
   color: white;
   font-size: 16px;
 }
