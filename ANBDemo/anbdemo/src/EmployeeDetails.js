@@ -10,7 +10,7 @@ class EmployeeDetails extends  Component{
 
         super(props)
         this.state={
-          EmployeeState:"Administrator",
+          
           empdata:[],
             UserName:"",
             FirstName:"",
@@ -55,7 +55,6 @@ class EmployeeDetails extends  Component{
       }
       editMode(index, event){
         console.log('item index = ', index);
-        //data = this.state.customerIndividual[index];
     }
     
     render(){
@@ -91,8 +90,3 @@ class EmployeeDetails extends  Component{
     }
 }
 export default EmployeeDetails;
-
-
-
-
-
