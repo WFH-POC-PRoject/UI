@@ -11,12 +11,9 @@ import Workfrom from'./Workfrom';
 import login from'./login';
 import ResetPassword from'./ResetPassword';
 import {history} from './history';
-<<<<<<< HEAD
-import EmployeeDetails from './EmployeeDetails';
-=======
 import Register from './Register';
 import Employee from './Employee';
->>>>>>> 56ccfe428448e0cc268525519c263c1ffe16bfd2
+import EmployeeDetails from './EmployeeDetails';
 
 //import GoogleLogin from 'react-google-login';
 

@@ -13,6 +13,7 @@ class ResetPassword extends Component {
             Password: '',
             Confirmpassword: '',
             Id: '',
+            Token: '',
             Passworderror: '',
             Confirmpassworderror: '',
             PasswordMatcherror: ''
@@ -67,7 +68,7 @@ class ResetPassword extends Component {
             return true;
         }
         else {
-            PasswordMatcherror = 'Password is miss match !'
+            PasswordMatcherror = 'Confirmpassword is not maching with password !'
         }
 
         if (PasswordMatcherror) {
@@ -89,8 +90,10 @@ class ResetPassword extends Component {
         let search = window.location.search;
         let params = new URLSearchParams(search);
         const IsSuperUser = params.get('IsSuperUser');
+        const IsToken = params.get('code');
+        console.log(IsToken);
         console.log(IsSuperUser);
-        let user = { Password: this.state.Password, Confirmpassword: this.state.Confirmpassword, Id: IsSuperUser };
+        let user = { Password: this.state.Password, Confirmpassword: this.state.Confirmpassword, Id: IsSuperUser,Token:IsToken};
         console.log(user);
 
         if (flag) {
@@ -125,24 +128,24 @@ class ResetPassword extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 col-md-offset-2"></div>
-                        <div className="mt-5 col-md-6 col-md-offset-6 border border-primary">
+                        <div className="mt-5 col-md-7 col-md-offset-6 border border-primary">
                             <div className="panel panel-default">
                                 <div className="panel-body">
                                     <div className="text-center">
                                         <h3><i className="fa fa-lock fa-4x"></i></h3>
                                         {/* <h2 class="text-center">Forgot Password?</h2> */}
-                                        <p>You can reset your password here.</p>
+                                        
                                         <div className="panel-body">
                                             <form id="register-form">
-                                                <div class="row">
+                                                <div className="row mt-5">
                                                     <div className="col-sm-3 text-right col-sm-padding mt-1">
                                                         <span>Password : </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
                                                     <input type="password" required placeholder="Password" name="Password" className="form-control" value={this.state.Password} onChange={this.onChange} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}' />
                                                     </div>
-                                                    <div className="col-sm-10 form-group">
-                                                    <span className="text-left mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.Passworderror}</span>
+                                                    <div className="col-sm-9 form-group">
+                                                    <span className="text-left ml-3 mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.Passworderror}</span>
                                                     </div>
                                                 </div>
 
@@ -155,9 +158,8 @@ class ResetPassword extends Component {
                                                     </div>
                                                     <div className="col-sm-10 form-group">
                                                     <span className="text-left mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.Confirmpassworderror}</span>
-                                                   
                                                     </div>
-                                                    <div className="col-sm-10 form-group">
+                                                    <div className="col-sm-12 form-group">
                                                     <span className="text-left mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.PasswordMatcherror}</span>
                                                     </div>
                                                 </div>

@@ -31,11 +31,7 @@ class login extends Component{
         console.log(obj);
         axios.post(`https://localhost:44362/Login`, obj)
         .then(response => {
-<<<<<<< HEAD
-            if(obj!=obj.UserName&this.state.PasswordHash==obj.PasswordHash)
-=======
             if(obj!=obj.UserName&&this.state.PasswordHash==obj.PasswordHash)
->>>>>>> 56ccfe428448e0cc268525519c263c1ffe16bfd2
             {
                 console.log(response);
                 history.push('/Workfromhome');
@@ -58,7 +54,7 @@ class login extends Component{
       return(
         <Form className="login-form">
         <br/>
-        <h1 className="font-weight-bold">ANB Demo <span className="phone"></span></h1>
+        <h1 className="font-weight-bold"> WFH-POC <span className="phone"></span></h1>
         <br/>
         <br/>
         <FormGroup>
