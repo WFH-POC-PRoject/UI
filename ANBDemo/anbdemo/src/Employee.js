@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import './App.css';
 import { Table } from 'react-bootstrap';
 import { Modal, Button, Form } from 'react-bootstrap';
 //import { Item } from 'react-bootstrap/lib/Breadcrumb';
-
-
-
 
 class Employee extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            PageName:"Employee",
             show: false,
             dept: [],
             id: 0
@@ -19,7 +18,6 @@ class Employee extends Component {
         }
         this.handleModele = this.handleModele.bind(this);
     }
-
 
     componentDidMount() {
         this.refreshlist();
@@ -49,8 +47,9 @@ class Employee extends Component {
     render() {
         const { dept } = this.state;
         return (
+            <Form className="Request-Form">
             <div>
-                <Table className="mt-5 table table-bordered " striped bordered hover size="sm">
+                <table>
                     <thead>
                         <tr>
                             <th>#Action</th>
@@ -81,7 +80,7 @@ class Employee extends Component {
                             </tr>
                         )}
                     </tbody>
-                </Table>
+                </table>
 
                 <Modal size="md" aria-labelledby="contained-modal-title-vcenter"
                     centered show={this.state.show}
@@ -164,6 +163,7 @@ class Employee extends Component {
 
 
             </div>
+            </Form>
         )
 
         const { dept1 } = this.state;

@@ -3,10 +3,12 @@ import './App.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import { GoogleLoginButton } from 'react-social-login-buttons';
 import {history} from './history';
 import GoogleLogin from 'react-google-login';
-
+import './App';
+import App from './App';
+import { Router,Switch,Route} from 'react-router-dom';
+//export {StateRole} from './login.js';
 class login extends Component{
   
     constructor(props){
@@ -24,37 +26,49 @@ class login extends Component{
     }
 
     login(){
-        
+       
         let obj={}
         obj.UserName=this.state.UserName;
         obj.PasswordHash=this.state.PasswordHash;
         console.log(obj);
         axios.post(`https://localhost:44362/Login`, obj)
         .then(response => {
-            if(obj!=obj.UserName&&this.state.PasswordHash==obj.PasswordHash)
+            if(response.data.id=="1")
             {
+              //this.state.StateRole='Administrator';
+              localStorage.setItem('StateRole',response.data.userName);
                 console.log(response);
                 history.push('/Workfromhome');
+                window.location.reload(true);
+            }
+            else if(response.data.id=="2")
+            {
+                alert("Incorrect Password");
+            }
+            else if(response.data.id=="3")
+            {
+              alert("Role has not been assigned to this user, Please contact administrator.");
+            }
+            else if(response.data.id=="4")
+            {
+                alert("Invalid User");
             }
         }).catch(err => {
             alert("Incorrect UserName or Password");
-          console.log("err");
         });
       }
     
     render() {
-      const responseMicrosoft = (response) => {
-        console.log(response);
-      }
       
       const responseGoogle = (response) => {
 
       }
       
+      
       return(
         <Form className="login-form">
         <br/>
-        <h1 className="font-weight-bold"> WFH-POC <span className="phone"></span></h1>
+        <h1 className="font-weight-bold">WFH-POC <span className="phone"></span></h1>
         <br/>
         <br/>
         <FormGroup>
@@ -71,7 +85,6 @@ class login extends Component{
           Or Continue with your social account
         </div>
         <br/>
-        {/* <GoogleLoginButton> */}
         <GoogleLogin id="goog" style={{color: "burlywood"}}
           clientId="327606379568-tnqj9q11bmc9djul8rbef5ehckup9749.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
           buttonText="LOGIN WITH GOOGLE"
@@ -80,11 +93,9 @@ class login extends Component{
           cookiePolicy={'single_host_origin'}
           className="btnGoogle"
         />
-        {/* </GoogleLoginButton> */}
         <br/>
         <br/>
         <div className="text-center">
-          {/* <a href="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp">Sign Up</a> */}
           <Link to="/Register">Sign Up</Link>
           <span className="p-2">|</span>
           <a href="https://www.website.com/forgot-password/">Forgot Password</a>

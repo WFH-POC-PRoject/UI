@@ -19,7 +19,7 @@
     "googleapis": "^48.0.0",
     "grid": "^3.3.7",
     "mdbreact": "^4.25.4",
-    "react": "^16.12.0",
+    "react": "^16.13.1",
     "react-bootstrap": "^1.0.0-beta.17",
     "react-calendar": "^3.0.0",
     "react-data-grid": "^7.0.0-alpha.29",
