@@ -10,6 +10,7 @@ class EmployeeDetails extends  Component{
 
         super(props)
         this.state={
+          EmployeeState:"Administrator",
           empdata:[],
             UserName:"",
             FirstName:"",
@@ -56,36 +57,11 @@ class EmployeeDetails extends  Component{
         console.log('item index = ', index);
         //data = this.state.customerIndividual[index];
     }
-    // WFH(){
-        
-    // }
+    
     render(){
         return(
             <Form className="Request-Form">
-            <div class="header">
-                <img src={Anblicks} alt="A Anblicks"></img>
-             <div class="header-right">
-               <a class="active" href="">mallesh.n</a>
-               <a href="/login" className="similar-icons-icon">Logout</a>
-             </div>
-            </div>
-        <div>
-            <section>
-                <nav>
-                  <ul class="icon-bar">
-                    <li><Link to="/Workfromhome">Home</Link></li>
-                    <li><Link to="/Workfrom">Workfromhome</Link></li>
-                    <li><Link to="/EmployeeDetails">EmployeeDetails</Link></li>
-                    <li><a href="">Careers</a></li>
-                    <li><a href=""></a></li>
-                  </ul>
-                </nav>
-                </section>
-                </div>
-                <br/>
-                <br/>
-                
-            <br/>
+           
 <div className="text-center">
   <br/>
   <div id="emp">

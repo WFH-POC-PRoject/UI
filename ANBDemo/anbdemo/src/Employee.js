@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import './App.css';
 import { Table } from 'react-bootstrap';
 import { Modal, Button, ButtonToolbar, Row, Col, Form } from 'react-bootstrap';
-
-
-
 
 class Employee extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            PageName:"Employee",
             show: false,
             dept: []
 
         }
         this.handleModele = this.handleModele.bind(this);
     }
-
 
     componentDidMount() {
         this.refreshlist();
@@ -47,8 +45,9 @@ class Employee extends Component {
     render() {
         const { dept } = this.state;
         return (
+            <Form className="Request-Form">
             <div>
-                <Table className="mt-4 table" striped bordered hover size="sm">
+                <table>
                     <thead>
                         <tr>
                             <th>#Action</th>
@@ -79,7 +78,7 @@ class Employee extends Component {
                             </tr>
                         )}
                     </tbody>
-                </Table>
+                </table>
 
                 <Modal size="lg" aria-labelledby="contained-modal-title-vcenter"
                     centered show={this.state.show}
@@ -105,6 +104,7 @@ class Employee extends Component {
 
 
             </div>
+            </Form>
         )
 
         const { dept1 } = this.state;

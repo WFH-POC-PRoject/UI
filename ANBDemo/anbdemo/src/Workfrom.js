@@ -1,38 +1,22 @@
 import React,{Component} from 'react';
-import Anblicks from './Anblicks.png';
 import './App.css';
 import {Button,FormGroup,Form} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 class Workfrom extends  Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+}
     WFH(){
         alert('workfromhome page is ready to soon!...')
     }
     render(){
         return(
             <Form className="Request-Form">
-            <div class="header">
-                <img src={Anblicks} alt="A Anblicks"></img>
-             <div class="header-right">
-               <a class="active" href="">mallesh.n</a>
-               <a href="/login" className="similar-icons-icon">Logout</a>
-             </div>
-            </div>
-        <div>
-            <section>
-                <nav>
-                  <ul class="icon-bar">
-                    <li><Link to="/Workfromhome">Home</Link></li>
-                    <li><Link to="/Workfrom">Workfromhome</Link></li>
-                    <li><Link to="/EmployeeDetails">EmployeeDetails</Link></li>
-                    <li><a href="">Careers</a></li>
-                    <li><a href=""></a></li>
-                  </ul>
-                </nav>
-                </section>
-                </div>
-                <br/>
-                <br/>
+
                 <label className="wf"><b>&emsp;Workfrom Home Report Table :</b></label>
                 <br/>
                 <br/>
