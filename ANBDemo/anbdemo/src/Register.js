@@ -20,7 +20,10 @@ class Register extends Component {
 
         }
         this.saveUser = this.saveUser.bind(this);
+        localStorage.setItem('StateRole',"");
     }
+    
+    
     onChange = (e) => {
 
 

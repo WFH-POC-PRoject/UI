@@ -35,7 +35,7 @@ class login extends Component{
         .then(response => {
             if(response.data.id=="1")
             {
-              //this.state.StateRole='Administrator';
+              
               localStorage.setItem('StateRole',response.data.userName);
                 console.log(response);
                 history.push('/Workfromhome');
@@ -68,7 +68,7 @@ class login extends Component{
       return(
         <Form className="login-form">
         <br/>
-        <h1 className="font-weight-bold">WFH-POC <span className="phone"></span></h1>
+        <h1 className="font-weight-bold">Employee Management<span className="phone"></span></h1>
         <br/>
         <br/>
         <FormGroup>
@@ -85,18 +85,18 @@ class login extends Component{
           Or Continue with your social account
         </div>
         <br/>
-        <GoogleLogin id="goog" style={{color: "burlywood"}}
-          clientId="327606379568-tnqj9q11bmc9djul8rbef5ehckup9749.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
+        <GoogleLogin id="goog" style={{textAlign:"center"}}
+          clientId="327606379568-tnqj9q11bmc9djul8rbef5ehckup9749.apps.googleusercontent.com" 
           buttonText="LOGIN WITH GOOGLE"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
-          className="btnGoogle"
+          className="btn-lg btn-dark btn-block text-center"
         />
         <br/>
         <br/>
         <div className="text-center">
-          <Link to="/Register">Sign Up</Link>
+          <Link to="/Register">Register</Link>
           <span className="p-2">|</span>
           <a href="https://www.website.com/forgot-password/">Forgot Password</a>
   

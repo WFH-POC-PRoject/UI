@@ -1,17 +1,22 @@
 .login-form{
   width: 50%;
   height: 100%;
-  max-width: 330px;
+  max-width: 475px;
   padding: 15px;
   margin: auto;
 }
+.text-center{
+  text-align: center;
+}
+
 .text-left{
   text-align: left;
 }
 h1 {
-  background: linear-gradient(to right, orange , yellow, green, cyan,blue, violet);
+  color: #33b5e5;
+  /* background: linear-gradient(to right, green);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
   font-size: 60px;
   line-height: 60px;
 }
@@ -44,14 +49,14 @@ background-color: rgb(203, 63, 34);
 }
 .btnGoogle { 
   margin:5px;
-  width: 300px;
+  width: 435px;
   height:45px;
   border-radius: 4px;
   background: #db3236;
   background-color:skyblue;
   color:burlywood;
   border:0px transparent;
-  text-align: center;
+  text-align: center !important;
 }
 
 #emp1{

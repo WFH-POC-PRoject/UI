@@ -9,7 +9,6 @@ class ResetPassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
             Password: '',
             Confirmpassword: '',
             Id: '',
@@ -19,6 +18,7 @@ class ResetPassword extends Component {
             PasswordMatcherror: ''
 
         }
+        localStorage.setItem('StateRole',"");
         this.saveUser = this.saveUser.bind(this);
         this._handleNewPassword = this._handleNewPassword.bind(this);
         this._handleConfirmedPassword = this._handleConfirmedPassword.bind(this);
@@ -29,7 +29,7 @@ class ResetPassword extends Component {
         debugger;
         let Passworderror = "";
         if (!this.state.Password) {
-            Passworderror = 'Password is requaired !'
+            Passworderror = 'Password is required !'
         }
         if (this.state.Password) {
             Passworderror = ''
@@ -46,7 +46,7 @@ class ResetPassword extends Component {
         debugger;
         let Confirmpassworderror = "";
         if (!this.state.Confirmpassword) {
-            Confirmpassworderror = 'Confirmpassword is requaired !'
+            Confirmpassworderror = 'Confirmpassword is required !'
         }
         if (this.state.Confirmpassword) {
             Confirmpassworderror = ''
@@ -68,7 +68,7 @@ class ResetPassword extends Component {
             return true;
         }
         else {
-            PasswordMatcherror = 'Confirmpassword is not maching with password !'
+            PasswordMatcherror = 'Confirmpassword is not matching with password !'
         }
 
         if (PasswordMatcherror) {
