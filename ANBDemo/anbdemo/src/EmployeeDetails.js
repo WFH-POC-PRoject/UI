@@ -10,7 +10,6 @@ class EmployeeDetails extends  Component{
 
         super(props)
         this.state={
-          
           empdata:[],
             UserName:"",
             FirstName:"",
@@ -90,3 +89,8 @@ class EmployeeDetails extends  Component{
     }
 }
 export default EmployeeDetails;
+
+
+
+
+
