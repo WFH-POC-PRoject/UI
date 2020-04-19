@@ -47,13 +47,14 @@ class Register extends Component {
         if (!this.state.LastName) {
             lastNameerror = 'LastName is requaired !'
         }
+        
         if (!this.state.UserName) {
             userNameerror = 'UserName is requaired !'
         }
-
         if (!this.state.Email) {
             emailerror = 'Email address requaired !';
         }
+        
 
         if (emailerror || firstNameerror || lastNameerror || userNameerror || emailerror) {
             this.setState({ emailerror, lastNameerror, firstNameerror, userNameerror, emailerror });
@@ -69,6 +70,7 @@ class Register extends Component {
         let user = { FirstName: this.state.FirstName, LastName: this.state.LastName, UserName: this.state.UserName, Email: this.state.Email };
         console.log(user);
         if (flag) {
+            
             Axios.post('https://localhost:44330/api/Register/Register', user)
                 .then((data) => {
                     console.log(data)
@@ -84,7 +86,9 @@ class Register extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Employee Registration</h2>
+                <br/>
+                <h1 className="font-weight-bold text-center">Employee Registration<span className="phone"></span></h1>
+                
                 {/* <div className="content-wrapper">
                         <div className="col-sm-6 col-sm-offset-3 text">
                             <div className="card form-box">
@@ -94,12 +98,13 @@ class Register extends Component {
                             </div>
                         </div>
                     </div> */}
-                <hr></hr>
+                
+                
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 col-md-offset-2"></div>
                         <div className="mt-5 col-md-6 col-md-offset-6 border border-primary">
-                            <div className="panel panel-default">
+                            <div className="panel panel-default mt-4">
                                 <div className="panel-body">
                                     <div className="text-center">
                                         <h3><i className="fa fa-lock fa-4x"></i></h3>
@@ -108,8 +113,8 @@ class Register extends Component {
                                         <div className="panel-body">
                                             <form id="register-form">
 
-                                                <div class="row">
-                                                    <div className="col-sm-3 text-right col-sm-padding mt-1">
+                                                <div className="row ">
+                                                    <div className="col-sm-3 text-right col-sm-padding">
                                                         <span>FirstName : </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
@@ -121,7 +126,7 @@ class Register extends Component {
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
+                                                <div className="row">
                                                     <div className="col-sm-3 text-right col-sm-padding mt-1">
                                                         <span>LastName : </span>
                                                     </div>
@@ -133,7 +138,7 @@ class Register extends Component {
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
+                                                <div className="row">
                                                     <div className="col-sm-3 text-right col-sm-padding mt-1">
                                                         <span>UserName : </span>
                                                     </div>
@@ -145,7 +150,7 @@ class Register extends Component {
                                                     </div>
                                                 </div>
 
-                                                <div class="row">
+                                                <div className="row">
                                                     <div className="col-sm-3 text-right col-sm-padding mt-1">
                                                         <span>Email : </span>
                                                     </div>

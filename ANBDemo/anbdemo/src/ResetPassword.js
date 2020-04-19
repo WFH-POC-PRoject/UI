@@ -100,8 +100,15 @@ class ResetPassword extends Component {
             Axios.post('https://localhost:44394/api/ResetPassword/ResetPassword', user)
                 .then((data) => {
                     console.log(data)
-                    alert(data.data.statusMessage);
-                    history.push('/');
+                    if(data.data.statusCode==200)
+                    {
+                        alert(data.data.statusMessage);
+                        history.push('/');
+                    }
+                     else{
+                        alert(data.data.statusMessage);
+                        return false;
+                     }
                 })
                 .catch((err) => {
                     console.log(err);
@@ -114,7 +121,8 @@ class ResetPassword extends Component {
         return (
 
             <div>
-                <h2 className="text-center">Reset Password</h2>
+                 <br/>
+                <h1 className="font-weight-bold text-center">Reset Password<span className="phone"></span></h1>
                 {/* <div className="content-wrapper">
                     <div className="col-sm-6 col-sm-offset-3 text">
                         <div className="card form-box">
@@ -124,11 +132,11 @@ class ResetPassword extends Component {
                         </div>
                     </div>
                 </div> */}
-                <hr></hr>
+                
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 col-md-offset-2"></div>
-                        <div className="mt-5 col-md-7 col-md-offset-6 border border-primary">
+                        <div className="mt-5 col-md-6 col-md-offset-6 border border-primary">
                             <div className="panel panel-default">
                                 <div className="panel-body">
                                     <div className="text-center">
@@ -139,27 +147,27 @@ class ResetPassword extends Component {
                                             <form id="register-form">
                                                 <div className="row mt-5">
                                                     <div className="col-sm-3 text-right col-sm-padding mt-1">
-                                                        <span>Password : </span>
+                                                        <span>Password </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
                                                     <input type="password" required placeholder="Password" name="Password" className="form-control" value={this.state.Password} onChange={this.onChange} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}' />
                                                     </div>
-                                                    <div className="col-sm-9 form-group">
+                                                    <div className="col-sm-9 ml-1 form-group">
                                                     <span className="text-left ml-3 mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.Passworderror}</span>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div className="col-sm-3 text-right col-sm-padding mt-1">
-                                                        <span>ConfirmPassword : </span>
+                                                        <span>ConfirmPassword </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
                                                     <input type="password" required placeholder="ConfirmPassword" name="Confirmpassword" className="form-control" value={this.state.Confirmpassword} onChange={this.onChange} pattern='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}' />
                                                     </div>
-                                                    <div className="col-sm-10 form-group">
+                                                    <div className="col-sm-10 ml-3 form-group">
                                                     <span className="text-left mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.Confirmpassworderror}</span>
                                                     </div>
-                                                    <div className="col-sm-12 form-group">
+                                                    <div className="col-sm-12 ml-4 form-group">
                                                     <span className="text-left mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.PasswordMatcherror}</span>
                                                     </div>
                                                 </div>
