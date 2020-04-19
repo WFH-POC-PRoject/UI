@@ -8,6 +8,21 @@
 .text-center{
   text-align: center;
 }
+.googlelogin{
+  border: thin solid #888;
+  margin:5px;
+  width: 440px;
+  height:45px;
+  border-radius: 5px;
+  background: #db3236;
+  background-color:#DD4B39 !important;
+  color:burlywood;
+  text-align: center !important;
+}
+
+.googlelogin:hover{
+  cursor: pointer;
+}
 
 .text-left{
   text-align: left;

@@ -19,8 +19,16 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      StateRole:"",
+      StateRole:localStorage.getItem('StateRole'),
+      StateUserName:localStorage.getItem('StateUserName'),
     }
+    
+}
+logout(){
+  localStorage.setItem('StateRole',"");
+  localStorage.setItem('StateUserName',"");
+  history.push('/login');
+  window.location.reload(true);
 }
   
 render() {
@@ -33,8 +41,13 @@ render() {
               <div className="header" style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                   <img src={Anblicks} alt="A Anblicks"></img>
                      <div className="header-right">
-                         <a className="active" href="">mallesh</a>
-                          <a href="/login">Logout</a>
+                     <label>Hi {this.state.StateUserName}, </label>  
+                        &nbsp;&nbsp; 
+                        <label style={{fontSize:12, color:"red"}}>{this.state.StateRole}</label>                        
+                        &nbsp;&nbsp; 
+                        <ul>
+                        <Button onClick={()=>{this.logout()}}>Logout</Button>
+                        </ul>
                      </div>
                </div>
                 <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
@@ -63,8 +76,13 @@ render() {
                  <div className="header" style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                      <img src={Anblicks} alt="A Anblicks"></img>
                         <div className="header-right">
-                            <a className="active" href="">mallesh</a>
-                             <a href="/login">Logout</a>
+                        <label>Hi {this.state.StateUserName}, </label>  
+                        &nbsp;&nbsp; 
+                        <label style={{fontSize:12, color:"red"}}>{this.state.StateRole}</label>                        
+                        &nbsp;&nbsp; 
+                        <ul>
+                        <Button onClick={()=>{this.logout()}}>Logout</Button>
+                        </ul>
                         </div>
                   </div>
                   <div>
@@ -98,8 +116,11 @@ render() {
                  <div className="header" style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                      <img src={Anblicks} alt="A Anblicks"></img>
                         <div className="header-right">
-                            <a className="active" href="">mallesh</a>
-                             <a href="/login">Logout</a>
+                        <label>Hi {this.state.StateUserName}, </label>  
+                        &nbsp;&nbsp; 
+                        <label style={{fontSize:12, color:"red"}}>{this.state.StateRole}</label>                        
+                        &nbsp;&nbsp; 
+                        <Button onClick={()=>{this.logout()}}>Logout</Button>
                         </div>
                   </div>
                    <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
@@ -114,9 +135,11 @@ render() {
                 </Form>
                   <Switch>
                          <Route exact path='/' component={login}></Route>
+                         <Route exact path='/login' component={login}></Route>
                          <Route exact path='/ResetPassword' component={ResetPassword}></Route>
                          <Route exact path='/Register' component={Register}></Route>
                          <Route exact path='/Workfrom' component={Workfrom}></Route>
+                         <Route exact path='/App' component={App}></Route>
                   </Switch>
                 </Router>
                 </React.Fragment>
@@ -130,8 +153,11 @@ render() {
                  <div className="header" style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                      <img src={Anblicks} alt="A Anblicks"></img>
                         <div className="header-right">
-                            <a className="active" href="">mallesh</a>
-                             <a href="/login">Logout</a>
+                        <label>Hi {this.state.StateUserName}, </label>  
+                        &nbsp;&nbsp; 
+                        <label style={{fontSize:12, color:"red"}}>{this.state.StateRole}</label>                        
+                        &nbsp;&nbsp; 
+                        <Button onClick={()=>{this.logout()}}>Logout</Button>
                         </div>
                   </div>
                    <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
@@ -155,14 +181,15 @@ render() {
               return(
                 <React.Fragment>
                 <Router history={history}> 
+                 <Form className="Request-Form">
+                </Form>
                   <Switch>
-                         <Route exact path='/' component={login}></Route>
-                         <Route exact path='/ResetPassword' component={ResetPassword}></Route>
-                         <Route exact path='/Register' component={Register}></Route>
+                        <Route exact path='/' component={login}></Route>
+                        <Route exact path='/login' component={login}></Route>
                   </Switch>
                 </Router>
                 </React.Fragment>
-              )
+            )
             }
     
 }

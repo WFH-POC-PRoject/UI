@@ -7,7 +7,6 @@ class Workfromhome extends  Component{
     render(){
         return(
             <Form className="Request-Form">
-                
                 <section>
                     <article>
                       <h1>Anblicks</h1>
@@ -17,7 +16,6 @@ class Workfromhome extends  Component{
                           Anblicks employs more than 400 technology professionals and over 100 data analysts and data science experts. </p>
                     </article>
                 </section>
-            
 
             </Form>
         );

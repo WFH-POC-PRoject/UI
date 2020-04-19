@@ -17,6 +17,8 @@ class login extends Component{
           UserName:"",
           PasswordHash:"",
       }
+      localStorage.setItem('StateRole',"");
+      localStorage.setItem('StateUserName',"");
     }
     handleuser(text){
       this.setState({UserName:text.target.value})
@@ -35,14 +37,15 @@ class login extends Component{
         .then(response => {
             if(response.data.id=="1")
             {
-              
-              localStorage.setItem('StateRole',response.data.userName);
+              localStorage.setItem('StateRole',response.data.normalizedUserName);
+              localStorage.setItem('StateUserName',response.data.userName);
                 console.log(response);
                 history.push('/Workfromhome');
                 window.location.reload(true);
             }
             else if(response.data.id=="2")
             {
+
                 alert("Incorrect Password");
             }
             else if(response.data.id=="3")
@@ -85,13 +88,15 @@ class login extends Component{
           Or Continue with your social account
         </div>
         <br/>
-        <GoogleLogin id="goog" style={{textAlign:"center"}}
+        <GoogleLogin style={{textAlign:"center"}}
           clientId="327606379568-tnqj9q11bmc9djul8rbef5ehckup9749.apps.googleusercontent.com" 
           buttonText="LOGIN WITH GOOGLE"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
-          className="btn-lg btn-dark btn-block text-center"
+          className="googlelogin text-center"
+          theme="dark"
+          longtitle="true"
         />
         <br/>
         <br/>
