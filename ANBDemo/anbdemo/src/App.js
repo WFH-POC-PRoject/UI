@@ -186,6 +186,8 @@ render() {
                   <Switch>
                         <Route exact path='/' component={login}></Route>
                         <Route exact path='/login' component={login}></Route>
+                        <Route exact path='/ResetPassword' component={ResetPassword}></Route>
+                         <Route exact path='/Register' component={Register}></Route>
                   </Switch>
                 </Router>
                 </React.Fragment>

@@ -73,9 +73,15 @@ class Register extends Component {
             
             Axios.post('https://localhost:44330/api/Register/Register', user)
                 .then((data) => {
-                    console.log(data)
-                    alert(data.data.statusMessage);
-                    history.push('/');
+                    if(data.data.statusCode == 200)
+                    {
+                        alert(data.data.statusMessage);
+                        history.push('/');
+                    }
+                    else{
+                        alert(data.data.statusMessage);
+                        return false;
+                    }
                 })
                 .catch((err) => {
                     console.log(err);
