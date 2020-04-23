@@ -35,24 +35,25 @@ class login extends Component{
         console.log(obj);
         axios.post(`https://localhost:44362/Login`, obj)
         .then(response => {
-            if(response.data.id=="1")
+            if(response.data.statusCode=="1")
             {
-              localStorage.setItem('StateRole',response.data.normalizedUserName);
+              localStorage.setItem('StateRole',response.data.userRole);
               localStorage.setItem('StateUserName',response.data.userName);
+              localStorage.setItem('StateUserId',response.data.userId);
                 console.log(response);
                 history.push('/Workfromhome');
                 window.location.reload(true);
             }
-            else if(response.data.id=="2")
+            else if(response.data.statusCode=="2")
             {
 
                 alert("Incorrect Password");
             }
-            else if(response.data.id=="3")
+            else if(response.data.statusCode=="3")
             {
               alert("Role has not been assigned to this user, Please contact administrator.");
             }
-            else if(response.data.id=="4")
+            else if(response.data.statusCode=="4")
             {
                 alert("Invalid User");
             }
@@ -103,7 +104,7 @@ class login extends Component{
         <div className="text-center">
           <Link to="/Register">Register</Link>
           <span className="p-2">|</span>
-          <a href="https://www.website.com/forgot-password/">Forgot Password</a>
+          <a href="">Forgot Password</a>
   
         </div>
       </Form>

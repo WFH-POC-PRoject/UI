@@ -8,6 +8,15 @@
 .text-center{
   text-align: center;
 }
+.btn-success{
+  text-align: center;
+}
+                    
+#edituser{
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
 .googlelogin{
   border: thin solid #888;
   margin:5px;
@@ -152,7 +161,7 @@ img{
 .icon-bar {
   width: 210px;
   background-color: #555;
-  height: 800px;
+  height: 600px;
   text-align: left;
 }
 .menu{
@@ -205,6 +214,7 @@ footer {
 table, th, td {
   border: 1px solid black;
 }
+
 .col-4,
 .col-sm-4,
 .col-md-4,

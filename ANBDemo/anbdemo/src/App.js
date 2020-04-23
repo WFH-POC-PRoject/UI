@@ -14,6 +14,7 @@ import Employee from './Employee';
 import EmployeeDetails from './EmployeeDetails';
 import Anblicks from './Anblicks.png';
 import StateRole from './login.js';
+import EditUser from './EditUser';
 
 class App extends Component{
   constructor(props) {
@@ -21,14 +22,23 @@ class App extends Component{
     this.state = {
       StateRole:localStorage.getItem('StateRole'),
       StateUserName:localStorage.getItem('StateUserName'),
+      StateUserId:localStorage.getItem('StateUserId'),
+      
     }
     
 }
 logout(){
   localStorage.setItem('StateRole',"");
   localStorage.setItem('StateUserName',"");
+  localStorage.setItem('StateUserId',"");
   history.push('/login');
   window.location.reload(true);
+}
+// refreshPage() {
+//   window.location.reload(false);
+// }
+refreshPage(){ 
+  window.location.reload(); 
 }
   
 render() {
@@ -53,7 +63,7 @@ render() {
                 <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                   <nav>
                     <ul className="icon-bar">
-                       <li><Link to="/Workfrom">Manage Employees</Link></li>
+                       <li><Link to="/Employee">Manage Employees</Link></li>
                     </ul>
                  </nav>
                </section>
@@ -62,7 +72,7 @@ render() {
                      <Route exact path='/' component={login}></Route>
                      <Route exact path='/ResetPassword' component={ResetPassword}></Route>
                      <Route exact path='/Register' component={Register}></Route>
-                    <Route exact path='/Workfrom' component={Workfrom}></Route>
+                    <Route exact path='/Employee' component={Workfrom}></Route>
                </Switch>
              </Router>
              </React.Fragment>
@@ -126,8 +136,8 @@ render() {
                    <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                      <nav>
                        <ul className="icon-bar">
-                       <li><Link to="/Employee">Edit User</Link></li>
-                         <li><Link to="/Employee">Apply WFH</Link></li>
+                         <li onClick={ this.refreshPage }><Link to="/EditUser">Edit User</Link></li> 
+                         <li><Link to="/Workfrom">Apply WFH</Link></li>
                          <li><Link to="/Employee">Edit WFH</Link></li>
                        </ul>
                     </nav>
@@ -140,6 +150,7 @@ render() {
                          <Route exact path='/Register' component={Register}></Route>
                          <Route exact path='/Workfrom' component={Workfrom}></Route>
                          <Route exact path='/App' component={App}></Route>
+                         <Route exact path='/EditUser' component={EditUser}></Route>
                   </Switch>
                 </Router>
                 </React.Fragment>
