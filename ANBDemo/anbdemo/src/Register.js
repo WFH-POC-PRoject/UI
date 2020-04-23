@@ -70,7 +70,7 @@ class Register extends Component {
         let user = { FirstName: this.state.FirstName, LastName: this.state.LastName, UserName: this.state.UserName, Email: this.state.Email };
         console.log(user);
         if (flag) {
-            
+
             Axios.post('https://localhost:44330/api/Register/Register', user)
                 .then((data) => {
                     if(data.data.statusCode == 200)

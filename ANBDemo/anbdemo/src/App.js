@@ -53,7 +53,7 @@ render() {
                 <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                   <nav>
                     <ul className="icon-bar">
-                       <li><Link to="/Workfrom">Manage Employees</Link></li>
+                       <li><Link to="/Employee">Manage Employees</Link></li>
                     </ul>
                  </nav>
                </section>
@@ -62,7 +62,8 @@ render() {
                      <Route exact path='/' component={login}></Route>
                      <Route exact path='/ResetPassword' component={ResetPassword}></Route>
                      <Route exact path='/Register' component={Register}></Route>
-                    <Route exact path='/Workfrom' component={Workfrom}></Route>
+                    <Route exact path='/Employee' component={Employee}></Route>
+                    
                </Switch>
              </Router>
              </React.Fragment>
