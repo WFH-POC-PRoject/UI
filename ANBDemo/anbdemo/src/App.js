@@ -72,7 +72,7 @@ render() {
                      <Route exact path='/' component={login}></Route>
                      <Route exact path='/ResetPassword' component={ResetPassword}></Route>
                      <Route exact path='/Register' component={Register}></Route>
-                    <Route exact path='/Employee' component={Workfrom}></Route>
+                    <Route exact path='/Employee' component={Employee}></Route>
                </Switch>
              </Router>
              </React.Fragment>
