@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import Anblicks from './Anblicks.png';
 import './App.css';
 import {Button,FormGroup,Form} from 'reactstrap';
 import {Link} from 'react-router-dom';
