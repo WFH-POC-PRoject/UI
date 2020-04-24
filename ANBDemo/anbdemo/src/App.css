@@ -44,6 +44,14 @@ h1 {
   font-size: 60px;
   line-height: 60px;
 }
+h3 {
+  color: #33b5e5;
+  /* background: linear-gradient(to right, green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  font-size: 60px;
+  line-height: 60px;
+}
 .goocolor{
   background-color: blueviolet;
 }
