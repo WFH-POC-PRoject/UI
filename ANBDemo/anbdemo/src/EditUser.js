@@ -88,6 +88,7 @@ class EditUser extends Component{
                     if(data.data.statusCode == 200)
                     {
                         alert(data.data.statusMessage);
+                        window.location.reload();
                     }
                     else{
                         alert(data.data.statusMessage);
