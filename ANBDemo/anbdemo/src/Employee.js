@@ -17,6 +17,8 @@ class Employee extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            roleNameerror: '',
+            managerNameerror: '',
             UserId: '',
             FirstName: '',
             LastName: '',
@@ -38,6 +40,7 @@ class Employee extends Component {
         }
 
         this.handleModele = this.handleModele.bind(this);
+        
         this.saveUserRoleManager = this.saveUserRoleManager.bind(this);
     }
 
@@ -78,9 +81,26 @@ class Employee extends Component {
         //     { "UserID": 4, "UserName": "Mallesh", "FirstName": "M" }]
         // })
     }
+    validate = () => {
+        debugger;
+        let roleNameerror = "";
+        let managerNameerror = "";
 
+        if (!this.state.selectedOption) {
+            roleNameerror = 'Role is requaired !'
+        }
+        if (!this.state.selectedmanager) {
+            managerNameerror = 'Manager is requaired !'
+        }
+        if (roleNameerror || managerNameerror) {
+            this.setState({ roleNameerror, managerNameerror });
+            return false;
+        }
+        return true;
+    }
 
     saveUserRoleManager() {
+        let flag = this.validate();
         const value = "";
         let AssignRoleAndManager = {
             UserId: this.state.UserId,
@@ -92,21 +112,28 @@ class Employee extends Component {
             Email: this.state.Email
         };
         console.log(AssignRoleAndManager)
-        Axios.post('https://localhost:44307/api/AssignRoleAndManager/AssignRoleAndManager', AssignRoleAndManager)
-        .then((data) => {
-            if(data.data.statusCode == 200)
-            {
-                alert(data.data.statusMessage);
-                history.push('/Employee');
-            }
-            else{
-                alert(data.data.statusMessage);
-                return false;
-            }
-        })
-            .catch((err) => {
-                console.log(err);
-            })
+        if (flag) {
+            Axios.post('https://localhost:44307/api/AssignRoleAndManager/AssignRoleAndManager', AssignRoleAndManager)
+                .then((data) => {
+                    if (data.data.statusCode == 200) {
+                        alert(data.data.statusMessage);
+                        history.push('/Employee');
+                        window.location.reload();
+                    }
+                    else {
+                        alert(data.data.statusMessage);
+                        return false;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
+        else{
+            this.setState({ show: true });
+            this.handleModele();
+        }
+        
     }
 
 
@@ -116,16 +143,16 @@ class Employee extends Component {
         return (
             <Form className="Request-Form">
                 <div>
-                    <table className="mt-6">
+                    <table className="mt-6 border">
                         <thead>
                             <tr>
-                                <th>#Action</th>
-                                <th>UserName</th>
-                                <th>FirstName</th>
-                                <th>LastName</th>
-                                <th>Email</th>
-                                <th>RoleName</th>
-                                <th>Manager</th>
+                                <th className="text-left">Action</th>
+                                <th className="text-left">User Name</th>
+                                <th className="text-left">First Name</th>
+                                <th className="text-left">Last Name</th>
+                                <th className="text-left">Email</th>
+                                <th className="text-left">Role Name</th>
+                                <th className="text-left">Manager</th>
                                 {/* <th>LastName</th>
                         <th>Email</th>
                         <th>RoleName</th>lastName,email,roleName,roleId */}
@@ -137,24 +164,24 @@ class Employee extends Component {
                             {dept.map(dep =>
                                 <tr key={dep.userId}>
                                     <td className="text-center"><Button className="btn btn-sm btn-primary btn-block" onClick={this.handleModele} id={dep.userId}>Select</Button></td>
-                                    <td className="text-center">{dep.userName} </td>
-                                    <td className="text-center">{dep.firstName}</td>
-                                    <td className="text-center">{dep.lastName}</td>
-                                    <td className="text-center">{dep.email}</td>
-                                    <td className="text-center">{dep.roleName}</td>
-                                    <td className="text-center">{dep.managerName}</td>
+                                    <td className="text-left">{dep.userName} </td>
+                                    <td className="text-left">{dep.firstName}</td>
+                                    <td className="text-left">{dep.lastName}</td>
+                                    <td className="text-left">{dep.email}</td>
+                                    <td className="text-left">{dep.roleName}</td>
+                                    <td className="text-left">{dep.managerName}</td>
 
                                 </tr>
                             )}
                         </tbody>
                     </table>
 
-                    <Modal size="md" aria-labelledby="contained-modal-title-vcenter"
+                    <Modal  size="md" aria-labelledby="contained-modal-title-vcenter"
                         centered show={this.state.show}
                     >
                         <Modal.Header closeButton>
                             <Modal.Title id="contained-modal-title-vcenter">
-                                <h4 className="font-weight-bold text-center">Add Role And Manager<span className="phone"></span></h4>
+                                <h3 className="font-weight-bold text-center">Add Role And Manager<span className="phone"></span></h3>
                             </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
@@ -202,30 +229,35 @@ class Employee extends Component {
                                             <span>Role : </span>
                                         </div>
 
-                                        {/* <input type="text" placeholder="Select Role..." name="AssignRole" className="form-control" value={this.state.AssignRole} onChange={this.onChange} onBlur={this.validate} /> */}
+                                        {/* roleNameerror, managerNameerror<input type="text" placeholder="Select Role..." name="AssignRole" className="form-control" value={this.state.AssignRole} onChange={this.onChange} onBlur={this.validate} /> */}
                                         <div className="col-sm-8 form-group">
-                                            <Select name="AssignRole" name="AssignRole" defaultValue={{label:this.state.defaultsectrole,value:this.state.defaultsectroleval}} options={options} onChange={this.onChangeRole} />
-
+                                            <Select name="AssignRole" name="AssignRole" placeholder="--Select--" defaultValue={{ label: this.state.defaultsectrole, value: this.state.defaultsectroleval }} options={options} onChange={this.onChangeRole} />
+                                            <span style={{ fontSize: 14, color: "red" }}>{this.state.roleNameerror}</span>
                                         </div>
-
+                                       
+                                           
+                                        
                                     </div>
                                     <div className="row">
                                         <div className="col-sm-3 text-right col-sm-padding mt-1">
                                             <span>Manager : </span>
                                         </div>
                                         <div className="col-sm-8 form-group">
-                                            <Select name="AssignManager" name="AssignManager" defaultValue={{label:this.state.defaultselectmgr,value:this.state.defaultselectmgrval}} options={this.state.allManagers} onChange={this.onChangeManager} />
+                                            <Select name="AssignManager" placeholder="--Select--" name="AssignManager" defaultValue={{ label: this.state.defaultselectmgr, value: this.state.defaultselectmgrval }} options={this.state.allManagers} onChange={this.onChangeManager} />
+                                            <div className="col-sm-10 form-group">
+                                                <span style={{ fontSize: 14, color: "red" }}>{this.state.managerNameerror}</span>
+                                            </div>
 
                                             {/* <Select name="AssignManager" options onChange={this.onChangeManager}>
                                                 {this.state.allManagers.map((Item, i) =>
                                                     <option key={i} value={Item.value}>{Item.label}</option>)}
                                             </Select> */}
 
-                                            {/* <input type="text" placeholder="AssignManager" name="AssignManager" className="form-control" value={this.state.AssignManager} onChange={this.onChange} onBlur={this.validate} /> */}
+
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <button className="btn btn-lg btn-primary btn-block" onClick={this.saveUserRoleManager}>Assign</button>
+                                        <button className="btn btn-lg btn-primary btn-block" data-dismiss="modal" onClick={this.saveUserRoleManager}>Assign</button>
                                     </div>
                                 </form>
                             </div>
@@ -259,10 +291,10 @@ class Employee extends Component {
             UserName: employees[0].userName,
             Email: employees[0].email,
             UserId: employees[0].userId,
-            defaultsectrole: employees[0].roleName,
-            defaultselectmgr: employees[0].managerName,
-            defaultsectroleval: employees[0].roleId,
-            defaultselectmgrval: employees[0].managerId
+            defaultsectrole: employees[0].roleName ? employees[0].roleName : "--Select--",
+            defaultselectmgr: employees[0].managerName ? employees[0].managerName : "--Select--",
+            defaultsectroleval: employees[0].roleId ? employees[0].roleId : "",
+            defaultselectmgrval: employees[0].managerId ? employees[0].managerId : ""
 
         });
 
