@@ -37,17 +37,19 @@ class Employee extends Component {
             defaultselectmgr: null,
             defaultsectroleval: null,
             defaultselectmgrval: null
+           
         }
-
+        this.refreshlist();
+        this.getAllManagers();
         this.handleModele = this.handleModele.bind(this);
         
         this.saveUserRoleManager = this.saveUserRoleManager.bind(this);
     }
 
-    componentDidMount() {
-        this.refreshlist();
-        this.getAllManagers();
-    }
+    // componentDidMount() {
+    //    //this.refreshlist();
+    //     this.getAllManagers();
+    // }
 
     getAllManagers() {
         Axios.get('https://localhost:44354/api/GetAllManagers/GetAllManagers')
@@ -111,8 +113,12 @@ class Employee extends Component {
             LastName: this.state.LastName,
             Email: this.state.Email
         };
-        console.log(AssignRoleAndManager)
+        console.log(this.state.defaultsectroleval);
+        console.log(this.state.defaultselectmgrval);
+        console.log(AssignRoleAndManager);
+        console.log("before server call",flag);
         if (flag) {
+            console.log("server call",flag);
             Axios.post('https://localhost:44307/api/AssignRoleAndManager/AssignRoleAndManager', AssignRoleAndManager)
                 .then((data) => {
                     if (data.data.statusCode == 200) {
@@ -130,8 +136,10 @@ class Employee extends Component {
                 })
         }
         else{
+            console.log("before server call",flag);
             this.setState({ show: true });
-            this.handleModele();
+            //this.handleModele();
+            return false;
         }
         
     }
@@ -177,7 +185,7 @@ class Employee extends Component {
                     </table>
 
                     <Modal  size="md" aria-labelledby="contained-modal-title-vcenter"
-                        centered show={this.state.show}
+                        centered show={this.state.show} 
                     >
                         <Modal.Header closeButton>
                             <Modal.Title id="contained-modal-title-vcenter">
@@ -232,7 +240,7 @@ class Employee extends Component {
                                         {/* roleNameerror, managerNameerror<input type="text" placeholder="Select Role..." name="AssignRole" className="form-control" value={this.state.AssignRole} onChange={this.onChange} onBlur={this.validate} /> */}
                                         <div className="col-sm-8 form-group">
                                             <Select name="AssignRole" name="AssignRole" placeholder="--Select--" defaultValue={{ label: this.state.defaultsectrole, value: this.state.defaultsectroleval }} options={options} onChange={this.onChangeRole} />
-                                            <span style={{ fontSize: 14, color: "red" }}>{this.state.roleNameerror}</span>
+                                            <span className="mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.roleNameerror}</span>
                                         </div>
                                        
                                            
@@ -244,20 +252,15 @@ class Employee extends Component {
                                         </div>
                                         <div className="col-sm-8 form-group">
                                             <Select name="AssignManager" placeholder="--Select--" name="AssignManager" defaultValue={{ label: this.state.defaultselectmgr, value: this.state.defaultselectmgrval }} options={this.state.allManagers} onChange={this.onChangeManager} />
-                                            <div className="col-sm-10 form-group">
-                                                <span style={{ fontSize: 14, color: "red" }}>{this.state.managerNameerror}</span>
-                                            </div>
-
+                                            <span className="mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.managerNameerror}</span>                                     
                                             {/* <Select name="AssignManager" options onChange={this.onChangeManager}>
-                                                {this.state.allManagers.map((Item, i) =>
+                                                {this.state.allManagers.map((Item, i) =>12Sri34
                                                     <option key={i} value={Item.value}>{Item.label}</option>)}
                                             </Select> */}
-
-
                                         </div>
                                     </div>
                                     <div className="form-group">
-                                        <button className="btn btn-lg btn-primary btn-block" data-dismiss="modal" onClick={this.saveUserRoleManager}>Assign</button>
+                                        <button className="btn btn-lg btn-primary btn-block" type="button"  onClick={()=>{this.saveUserRoleManager()}}>Assign</button>
                                     </div>
                                 </form>
                             </div>
@@ -303,6 +306,7 @@ class Employee extends Component {
     handleModeleClose() {
         this.setState({ show: false });
         console.log(this.state);
+        window.location.reload();
     }
 
     onChangeRole = selectedOption => {
