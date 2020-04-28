@@ -15,6 +15,8 @@ import EmployeeDetails from './EmployeeDetails';
 import Anblicks from './Anblicks.png';
 import StateRole from './login.js';
 import EditUser from './EditUser';
+import EditUserManager from './EditUserManager';
+import EditUserContractor from './EditUserContractor';
 
 class App extends Component{
   constructor(props) {
@@ -99,7 +101,7 @@ render() {
                    <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                      <nav>
                        <ul className="icon-bar">
-                       <li><Link to="/EmployeeDetails">Edit User</Link></li>
+                       <li onClick={ this.refreshPage }><Link to="/EditUserManager">Edit User</Link></li>
                          <li><Link to="/EmployeeDetails">WFH Requests</Link></li>
                         <li><Link to="/EmployeeDetails">Apply WFH</Link></li>
                          <li><Link to="/EmployeeDetails">Edit WFH</Link></li>
@@ -113,6 +115,7 @@ render() {
                          <Route exact path='/ResetPassword' component={ResetPassword}></Route>
                          <Route exact path='/Register' component={Register}></Route>
                          <Route exact path='/EmployeeDetails' component={Employee}></Route>
+                         <Route exact path='/EditUserManager' component={EditUserManager}></Route>
                   </Switch>
                 </Router>
                 </React.Fragment>
@@ -174,7 +177,7 @@ render() {
                    <section style={{display:window.location.pathname==='/'||window.location.pathname==='/resetpassword'||window.location.pathname==='/Register'?"none":""}}>
                      <nav>
                        <ul className="icon-bar">
-                              <li><Link to="/Workfrom">Edit User</Link></li>
+                              <li onClick={ this.refreshPage }><Link to="/EditUserContractor">Edit User</Link></li>
                        </ul>
                     </nav>
                   </section>
@@ -184,6 +187,7 @@ render() {
                          <Route exact path='/ResetPassword' component={ResetPassword}></Route>
                          <Route exact path='/Register' component={Register}></Route>
                          <Route exact path='/Workfrom' component={Workfrom}></Route>
+                         <Route exact path='/EditUserContractor' component={EditUserContractor}></Route>
                   </Switch>
                 </Router>
                 </React.Fragment>

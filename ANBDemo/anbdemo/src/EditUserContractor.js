@@ -68,9 +68,9 @@ class EditUser extends Component{
             emailerror = 'Email address required !';
         }
         
-        
-        if (firstNameerror || lastNameerror || userNameerror||emailerror) {
-            this.setState({ firstNameerror,lastNameerror, userNameerror,emailerror});
+
+        if (emailerror || firstNameerror || lastNameerror || userNameerror) {
+            this.setState({ emailerror, lastNameerror, firstNameerror, userNameerror});
             return false;
         }
         return true;
