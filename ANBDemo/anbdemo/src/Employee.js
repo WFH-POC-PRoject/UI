@@ -88,10 +88,10 @@ class Employee extends Component {
         let roleNameerror = "";
         let managerNameerror = "";
 
-        if (!this.state.selectedOption) {
+        if ((this.state.selectedOption == null&&this.state.defaultsectroleval=="")) {
             roleNameerror = 'Role is requaired !'
         }
-        if (!this.state.selectedmanager) {
+        if (this.state.selectedmanager==null&&this.state.defaultselectmgrval=="") {
             managerNameerror = 'Manager is requaired !'
         }
         if (roleNameerror || managerNameerror) {
@@ -106,8 +106,8 @@ class Employee extends Component {
         const value = "";
         let AssignRoleAndManager = {
             UserId: this.state.UserId,
-            RoleId: parseInt(this.state.selectedOption),
-            Managerid: this.state.selectedmanager,
+            RoleId: parseInt(this.state.selectedOption?this.state.selectedOption:this.state.defaultsectroleval),
+            Managerid: this.state.selectedmanager?this.state.selectedmanager:this.state.defaultselectmgrval,
             UserName: this.state.UserName,
             FirstName: this.state.FirstName,
             LastName: this.state.LastName,
