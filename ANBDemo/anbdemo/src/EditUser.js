@@ -26,8 +26,15 @@ class EditUser extends Component{
     }
 
     onChange = (e) => {
+        debugger;
         this.setState({ [e.target.name]: e.target.value });
-        this.validate();
+        // if (this.state.FirstName==='') {
+            
+        //     this.setState({firstNameerror:'FirstName is required'})
+        //     //firstNameerror = 'FirstName is required !'
+        //     //this.setState({firstNameerror});
+        // }
+         this.validate();
     }
 
     componentDidMount() {
@@ -50,22 +57,37 @@ class EditUser extends Component{
         
     }
     validate = () => {
+        debugger;
         let firstNameerror = "";
         let lastNameerror = "";
         let userNameerror = "";
         let emailerror = ""
-        if (!this.state.FirstName) {
+        console.log(this.state.FirstName);
+        if (this.state.FirstName==='') {
+            
             firstNameerror = 'FirstName is required !'
         }
-        if (!this.state.LastName) {
+        else{
+            firstNameerror='';
+        }
+        if (this.state.LastName==='') {
             lastNameerror = 'LastName is required !'
         }
+        else{
+            lastNameerror='';
+        }
         
-        if (!this.state.UserName) {
+        if (this.state.UserName==='') {
             userNameerror = 'UserName is required !'
         }
-        if (!this.state.Email) {
-            emailerror = 'Email address required !';
+        else{
+            userNameerror='';
+        }
+        if (this.state.Email==='') {
+            emailerror = 'Email address is required !';
+        }
+        else{
+            emailerror='';
         }
         
         
@@ -123,7 +145,7 @@ class EditUser extends Component{
                                                         <span>FirstName : </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
-                                                        <input type="text" name="FirstName" className="form-control" defaultValue={this.state.FirstName} onChange={this.onChange} onBlur={this.onChange} />
+                                                        <input type="text" name="FirstName" className="form-control" defaultValue={this.state.FirstName} onChange={this.onChange} onBlur={this.onChange} onKeyPress={this.onChange} />
                                                     </div>
                                                     <div className="col-sm-10 form-group">
                                                     <span className="text-left mt-2" style={{ fontSize: 14, color: "red" }}>{this.state.firstNameerror}</span>
@@ -159,7 +181,7 @@ class EditUser extends Component{
                                                         <span>Email : </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
-                                                        <input type="text" name="Email" className="form-control" defaultValue={this.state.Email} onChange={this.onChange} onBlur={this.onChange} />
+                                                        <input type="text" name="Email" disabled className="form-control" defaultValue={this.state.Email} onChange={this.onChange} onBlur={this.onChange} />
                                                     </div>
                                                     <div className="col-sm-10 form-group">
                                                     <span style={{ fontSize: 14, color: "red" }}>{this.state.emailerror}</span>
