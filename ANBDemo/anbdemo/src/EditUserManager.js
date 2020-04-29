@@ -159,7 +159,7 @@ class EditUser extends Component{
                                                         <span>Email : </span>
                                                     </div>
                                                     <div className="col-sm-8 form-group">
-                                                        <input type="text" name="Email" className="form-control" defaultValue={this.state.Email} onChange={this.onChange} onBlur={this.onChange} />
+                                                        <input type="text" name="Email" disabled className="form-control" defaultValue={this.state.Email} onChange={this.onChange} onBlur={this.onChange} />
                                                     </div>
                                                     <div className="col-sm-10 form-group">
                                                     <span style={{ fontSize: 14, color: "red" }}>{this.state.emailerror}</span>
