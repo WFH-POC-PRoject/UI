@@ -89,10 +89,10 @@ class Employee extends Component {
         let managerNameerror = "";
 
         if ((this.state.selectedOption == null&&this.state.defaultsectroleval=="")) {
-            roleNameerror = 'Role is requaired !'
+            roleNameerror = 'Role is required !'
         }
         if (this.state.selectedmanager==null&&this.state.defaultselectmgrval=="") {
-            managerNameerror = 'Manager is requaired !'
+            managerNameerror = 'Manager is required !'
         }
         if (roleNameerror || managerNameerror) {
             this.setState({ roleNameerror, managerNameerror });

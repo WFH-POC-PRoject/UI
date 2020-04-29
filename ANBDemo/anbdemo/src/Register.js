@@ -42,17 +42,17 @@ class Register extends Component {
         let userNameerror = "";
         let emailerror = ""
         if (!this.state.FirstName) {
-            firstNameerror = 'FirstName is requaired !'
+            firstNameerror = 'FirstName is required !'
         }
         if (!this.state.LastName) {
-            lastNameerror = 'LastName is requaired !'
+            lastNameerror = 'LastName is required !'
         }
         
         if (!this.state.UserName) {
-            userNameerror = 'UserName is requaired !'
+            userNameerror = 'UserName is required !'
         }
         if (!this.state.Email) {
-            emailerror = 'Email address requaired !';
+            emailerror = 'Email address required !';
         }
         
 
